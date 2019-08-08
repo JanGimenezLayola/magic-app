@@ -33,7 +33,7 @@ class CardsList extends Component {
             return (
               (card.imageUrl ? (
               <article key={card.id}>
-                <Link to={`/cards/S{card.id}`}>
+                <Link to={`/cards/${card.id}`}>
                   <img src={card.imageUrl} alt={card.name}/>
                 </Link>
                 <h3>{card.name}</h3>

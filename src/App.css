@@ -26,4 +26,15 @@ nav li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  min-width: 220px;
+}
+
+.image-container {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-details {
+  height: 70vh;
 }
