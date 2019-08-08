@@ -10,7 +10,10 @@ class CardsList extends Component {
   componentDidMount() {
     axios.get('https://api.magicthegathering.io/v1/cards')
       .then((response) => {
-        console.log(response);
+        const cardsFromAPI = response.data.cards;
+        this.setState({
+          cards: cardsFromAPI,
+        })
         
       })
       .catch((error) => {
@@ -21,9 +24,18 @@ class CardsList extends Component {
 
   render() {
     return (
-      <div>
+      <section className='container'>
         <h2>CardsList Page</h2>
-      </div>
+        {this.state.cards.map((card) => {
+          return (
+            <article key={card.id}>
+              <img src={card.imageUrl} alt={card.name}/>
+              <h3>{card.name}</h3>
+              <p>{card.type}</p>
+            </article>
+          )
+        })}
+      </section>
     )
   }
 }
