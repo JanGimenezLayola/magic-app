@@ -20,10 +20,15 @@ class CardsDetails extends Component {
     })
   }
 
+  goToPreviusPage = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     const { card } = this.state;
     return (
       <div className='image-container'>
+        <button onClick={this.goToPreviusPage}>Go Back</button>
         {card ? <img className='image-details' src={card.imageUrl} alt={card.name}/> : <p>Loading...</p>}
       </div>
     )
