@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import magicService from '../services/magicService'
 
 class CardsList extends Component {
 
@@ -9,7 +9,7 @@ class CardsList extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://api.magicthegathering.io/v1/cards')
+    magicService.getAllCards()
       .then((response) => {
         const cardsFromAPI = response.data.cards;
         this.setState({
