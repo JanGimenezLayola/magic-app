@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 class CardsList extends Component {
@@ -24,18 +25,24 @@ class CardsList extends Component {
 
   render() {
     return (
-      <section className='container'>
+      <>
         <h2>CardsList Page</h2>
-        {this.state.cards.map((card) => {
-          return (
-            <article key={card.id}>
-              <img src={card.imageUrl} alt={card.name}/>
-              <h3>{card.name}</h3>
-              <p>{card.type}</p>
-            </article>
-          )
-        })}
-      </section>
+        <section className='container'>
+          
+          {this.state.cards.length > 0 ? this.state.cards.map((card) => {
+            return (
+              (card.imageUrl ? (
+              <article key={card.id}>
+                <Link to={`/cards/S{card.id}`}>
+                  <img src={card.imageUrl} alt={card.name}/>
+                </Link>
+                <h3>{card.name}</h3>
+                <p>{card.type}</p>
+              </article>) : null)
+            )
+          }) : <p>Loading...</p>}
+        </section>
+      </>
     )
   }
 }

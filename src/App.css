@@ -17,3 +17,13 @@ nav li {
   padding: 5px;
   font-size: 20px;
 }
+
+/* ----Section---- */
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
